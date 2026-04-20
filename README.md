@@ -8,6 +8,8 @@
   <img src="examples/intj.png" alt="INTJ — 建筑师" width="240" />
 </p>
 
+**去爹味用 `/mbti:intj`，做设计用 `/mbti:enfp`，调 bug 用 `/mbti:istp`。**
+
 一个 Claude Code 插件，把 16 种 MBTI 人格打包成 16 个 skill。一行斜杠命令，切换 Claude 说话的方式。
 
 ```
@@ -17,8 +19,6 @@
 ```
 
 每个 skill 只改变 **语气、风格、思考习惯、决策默认值**，不会改 Claude 的工具、权限或安全行为。
-
-去爹味用 `/mbti:intj`，做设计用 `/mbti:enfp`，调 bug 用 `/mbti:istp`。
 
 ## 安装
 
