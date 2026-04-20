@@ -1,0 +1,8 @@
+{
+  "name": "mbti",
+  "description": "16 MBTI personality skills for Claude Code. Swap Claude's conversational style with /mbti:intj, /mbti:enfp, and 14 others.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mingfeiguoo"
+  }
+}
