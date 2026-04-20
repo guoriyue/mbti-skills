@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marginal — AI notes that think with you</title>
+<style>
+  :root {
+    --fg: #0f172a;
+    --muted: #475569;
+    --line: #e2e8f0;
+    --bg: #ffffff;
+    --accent: #0f172a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0;
+  }
+  .brand { font-weight: 600; letter-spacing: -0.01em; }
+  .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  .nav a:hover { color: var(--fg); }
+  .btn {
+    display: inline-block; padding: 10px 16px; border-radius: 6px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+  }
+  .btn.secondary {
+    background: transparent; color: var(--fg); border: 1px solid var(--line);
+  }
+
+  .hero { padding: 96px 0 80px; }
+  .hero h1 {
+    font-size: 48px; line-height: 1.1; letter-spacing: -0.02em;
+    margin: 0 0 20px; max-width: 720px;
+  }
+  .hero p {
+    font-size: 18px; color: var(--muted); max-width: 620px; margin: 0 0 28px;
+  }
+  .hero .actions { display: flex; gap: 12px; }
+
+  .features { padding: 64px 0; border-top: 1px solid var(--line); }
+  .features h2 { font-size: 28px; margin: 0 0 40px; letter-spacing: -0.01em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .card h3 { font-size: 16px; margin: 0 0 8px; }
+  .card p { font-size: 14px; color: var(--muted); margin: 0; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0; color: var(--muted); font-size: 13px;
+  }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 36px; }
+    .grid { grid-template-columns: 1fr; }
+    .nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Marginal</div>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#docs">Docs</a></li>
+      </ul>
+      <a class="btn" href="#signup">Get started</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>AI notes that think with you.</h1>
+      <p>Marginal captures your ideas, links them automatically, and surfaces the ones that matter when you need them.</p>
+      <div class="actions">
+        <a class="btn" href="#signup">Start free</a>
+        <a class="btn secondary" href="#demo">See a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2>What it does</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Auto-linked notes</h3>
+          <p>Your notes connect themselves. No tags to maintain, no folders to reorganize.</p>
+        </div>
+        <div class="card">
+          <h3>Ask your own notes</h3>
+          <p>Natural-language search across everything you've written, with citations back to the source.</p>
+        </div>
+        <div class="card">
+          <h3>Local-first</h3>
+          <p>Your notes live on your machine. Sync is optional and end-to-end encrypted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 Marginal</div>
+  </footer>
+</body>
+</html>

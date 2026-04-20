@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marginal — the notebook that gossips with your brain 🧠✨</title>
+<style>
+  :root {
+    --ink: #1a1033;
+    --paper: #fff8ee;
+    --hot: #ff4d8d;
+    --sun: #ffd23f;
+    --sky: #60c6ff;
+    --mint: #7af0b7;
+    --grape: #7a5cff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Georgia", "Iowan Old Style", serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(255,77,141,0.18), transparent 40%),
+      radial-gradient(circle at 90% 20%, rgba(122,92,255,0.16), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(96,198,255,0.18), transparent 50%);
+    pointer-events: none; z-index: -1;
+  }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0;
+  }
+  .brand {
+    font-family: "Georgia", serif; font-weight: 700; font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .brand em { font-style: italic; color: var(--hot); }
+  .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav a {
+    color: var(--ink); text-decoration: none; font-size: 15px;
+    border-bottom: 2px dashed transparent;
+  }
+  .nav a:hover { border-bottom-color: var(--hot); }
+
+  .btn {
+    display: inline-block; padding: 14px 22px; border-radius: 999px;
+    background: var(--ink); color: var(--paper); text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600; font-size: 15px;
+    box-shadow: 6px 6px 0 var(--hot);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--hot); }
+  .btn.alt { background: var(--sun); color: var(--ink); box-shadow: 6px 6px 0 var(--grape); }
+  .btn.alt:hover { box-shadow: 8px 8px 0 var(--grape); }
+
+  .hero { padding: 64px 0 96px; position: relative; }
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 88px);
+    line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 24px;
+    max-width: 980px;
+  }
+  .hero h1 .wave { display: inline-block; transform: rotate(-3deg); color: var(--hot); }
+  .hero h1 .box {
+    display: inline-block; padding: 0 10px; background: var(--sun);
+    transform: rotate(-1deg); border-radius: 6px;
+  }
+  .hero h1 .underline {
+    display: inline-block; position: relative;
+  }
+  .hero h1 .underline::after {
+    content: ""; position: absolute; left: -2%; right: -2%; bottom: 6px;
+    height: 14px; background: var(--mint); z-index: -1; border-radius: 8px;
+    transform: skewX(-8deg);
+  }
+  .hero p {
+    font-size: 20px; max-width: 640px; margin: 0 0 32px;
+  }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  .sticker {
+    position: absolute; font-family: -apple-system, sans-serif;
+    font-size: 13px; font-weight: 600; padding: 8px 14px;
+    border-radius: 999px; border: 2px solid var(--ink);
+  }
+  .sticker.one { top: 60px; right: 8%; background: var(--sky); transform: rotate(6deg); }
+  .sticker.two { top: 180px; right: 24%; background: var(--mint); transform: rotate(-8deg); }
+  .sticker.three { bottom: 40px; right: 12%; background: var(--sun); transform: rotate(4deg); }
+
+  .features { padding: 72px 0; }
+  .features h2 {
+    font-size: clamp(32px, 4.5vw, 52px); letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .features h2 em { font-style: italic; color: var(--grape); }
+  .features .lede {
+    font-size: 18px; max-width: 560px; margin: 0 0 40px;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .card {
+    padding: 28px; border-radius: 22px; border: 2px solid var(--ink);
+    background: var(--paper); position: relative;
+    transition: transform .2s ease;
+  }
+  .card:nth-child(1) { background: #ffe4ee; transform: rotate(-1.2deg); }
+  .card:nth-child(2) { background: #e6faff; transform: rotate(0.8deg); }
+  .card:nth-child(3) { background: #fff6c2; transform: rotate(-0.6deg); }
+  .card:hover { transform: rotate(0) translateY(-4px); }
+  .card .emoji {
+    font-size: 38px; display: inline-block; margin-bottom: 12px;
+    filter: drop-shadow(3px 3px 0 rgba(26,16,51,0.15));
+  }
+  .card h3 {
+    font-family: Georgia, serif; font-size: 22px; margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    font-family: -apple-system, sans-serif; font-size: 15px; margin: 0; line-height: 1.55;
+  }
+
+  .strip {
+    margin-top: 40px; padding: 22px 0;
+    background: var(--ink); color: var(--paper);
+    overflow: hidden; white-space: nowrap;
+    transform: rotate(-1.2deg);
+    border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  }
+  .strip span {
+    display: inline-block; padding: 0 24px;
+    font-family: -apple-system, sans-serif; font-weight: 700;
+    letter-spacing: 0.04em; font-size: 18px;
+  }
+  .strip span em { color: var(--sun); font-style: normal; }
+
+  footer {
+    padding: 48px 0 64px; text-align: center;
+    font-family: -apple-system, sans-serif; font-size: 14px;
+  }
+  footer .heart { color: var(--hot); }
+
+  @media (max-width: 780px) {
+    .grid { grid-template-columns: 1fr; }
+    .sticker { display: none; }
+    .nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">Marginal<em>.</em></div>
+      <ul>
+        <li><a href="#features">the goods</a></li>
+        <li><a href="#pricing">pricing</a></li>
+        <li><a href="#docs">nerd docs</a></li>
+      </ul>
+      <a class="btn alt" href="#signup">try it, it's free →</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <span class="sticker one">no folders ✌️</span>
+      <span class="sticker two">local-first 💾</span>
+      <span class="sticker three">made with love 💌</span>
+
+      <h1>
+        your <span class="underline">second brain</span>,<br/>
+        but <span class="box">actually fun</span> <span class="wave">~</span>
+      </h1>
+      <p>
+        Marginal is a little notebook that gossips with your brain. It links your notes, finishes your thoughts, and remembers the idea you had in the shower six months ago.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#signup">start scribbling →</a>
+        <a class="btn alt" href="#demo">peek inside 👀</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2>three <em>delightfully</em> weird tricks.</h2>
+      <p class="lede">No tags. No folders. No "inbox zero" guilt trip. Just a notebook that happens to be smart.</p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="emoji">🔗</span>
+          <h3>Notes that hold hands.</h3>
+          <p>Write freely. Marginal finds the connections in the background — like a friend who actually remembers what you said last week.</p>
+        </div>
+        <div class="card">
+          <span class="emoji">🪄</span>
+          <h3>Ask your own brain.</h3>
+          <p>"What did I think about X in March?" Ask in plain English. Get a real answer, with links back to the exact line you wrote.</p>
+        </div>
+        <div class="card">
+          <span class="emoji">🏡</span>
+          <h3>Stays on your laptop.</h3>
+          <p>Local-first. Your thoughts don't go anywhere unless you say so. Sync is optional and end-to-end encrypted, pinky promise.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <span>write messy · think clearly · <em>never lose a good idea</em> · write messy · think clearly · <em>never lose a good idea</em> ·</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      made with <span class="heart">♥</span> for people with too many tabs open. © 2026 Marginal.
+    </div>
+  </footer>
+</body>
+</html>

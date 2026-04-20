@@ -19,6 +19,7 @@ Inside Claude Code, add the marketplace once, then install:
 ```
 /plugin marketplace add guoriyue/mbti-skills
 /plugin install mbti@mbti-skills
+/reload-plugins
 ```
 
 To update later:
@@ -26,6 +27,7 @@ To update later:
 ```
 /plugin marketplace update mbti-skills
 /plugin update mbti@mbti-skills
+/reload-plugins
 ```
 
 ### Option B — developer install (local source)
@@ -84,6 +86,26 @@ The personality persists for the rest of the conversation. Switch by invoking an
 | `/mbti:isfp` | ISFP | The Adventurer | Aesthetic, low-pressure craft work |
 | `/mbti:estp` | ESTP | The Entrepreneur | Fast, pragmatic, action-first answers |
 | `/mbti:esfp` | ESFP | The Entertainer | Upbeat, concrete, momentum-focused work |
+
+## Examples
+
+### Coding — debugging an RL training run
+
+Same question, same logs. Base Claude surveys the space; INTJ commits to a diagnosis and an action order.
+
+| Base | `/mbti:intj` |
+|---|---|
+| ![Base Claude answering an RL debugging question](examples/coding-base.png) | ![INTJ answering the same RL debugging question](examples/coding-intj-on.png) |
+
+### Frontend — landing page for the same prompt
+
+Prompt: *"Landing page for a new AI note-taking app called Marginal."* Base produces a clean, conservative layout. `/mbti:enfp` produces something playful, colorful, and loud.
+
+| Base | `/mbti:enfp` |
+|---|---|
+| ![Base Claude's Marginal landing page](examples/frontend-base.png) | ![ENFP Claude's Marginal landing page](examples/frontend-enfp.png) |
+
+Source: [`examples/frontend-base.html`](examples/frontend-base.html) · [`examples/frontend-enfp.html`](examples/frontend-enfp.html)
 
 ## Structure
 
