@@ -1,0 +1,20 @@
+{
+  "name": "mbti-skills",
+  "owner": {
+    "name": "mingfeiguoo"
+  },
+  "metadata": {
+    "description": "MBTI personality skills for Claude Code — 16 types, one per slash command."
+  },
+  "plugins": [
+    {
+      "name": "mbti",
+      "source": "./",
+      "description": "16 MBTI personality skills for Claude Code. Swap Claude's conversational style with /mbti:intj, /mbti:enfp, and 14 others.",
+      "version": "1.0.0",
+      "author": {
+        "name": "mingfeiguoo"
+      }
+    }
+  ]
+}

@@ -12,26 +12,32 @@ Each skill changes **voice, style, reasoning preferences, and decision defaults*
 
 ## Install
 
-### Option A — try it locally (fastest)
+### Option A — from the marketplace (recommended)
 
-Clone, then launch Claude Code with the plugin loaded for that session:
+Inside Claude Code, add the marketplace once, then install:
+
+```
+/plugin marketplace add guoriyue/mbti-skills
+/plugin install mbti@mbti-skills
+```
+
+To update later:
+
+```
+/plugin marketplace update mbti-skills
+/plugin update mbti@mbti-skills
+```
+
+### Option B — developer install (local source)
+
+Clone and launch Claude Code with the plugin loaded:
 
 ```bash
-git clone https://github.com/<your-username>/mbti-skills.git
-claude --plugin-dir ./mbti-skills
+git clone https://github.com/guoriyue/mbti-skills.git ~/.claude/plugins/mbti-skills
+claude --plugin-dir ~/.claude/plugins/mbti-skills
 ```
 
-Good for testing edits before installing permanently.
-
-### Option B — install for every session
-
-Inside Claude Code, point `/plugin install` at the cloned directory:
-
-```
-/plugin install ./mbti-skills
-```
-
-Then restart or run `/reload-plugins`. Skills are now available in every project.
+Run `/reload-plugins` inside the session to pick up edits without restarting. Good for testing changes.
 
 ## Use
 
