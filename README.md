@@ -101,7 +101,7 @@ claude --plugin-dir ~/.claude/plugins/mbti-skills
 
 ### 写代码 —— debug 一次 RL 训练
 
-同样的问题、同样的日志。默认 Claude 面面俱到；INTJ 直接给诊断和行动顺序。
+同样的问题、同样的日志。默认 Claude 废话一堆；INTJ 直接给诊断和行动顺序。
 
 | Base | `/mbti:intj` |
 |---|---|

@@ -99,7 +99,7 @@ The personality persists for the rest of the conversation. Switch by invoking an
 
 ### Coding — debugging an RL training run
 
-Same question, same logs. Base Claude surveys the space; INTJ commits to a diagnosis and an action order.
+Same question, same logs. Base Claude rambles; INTJ commits to a diagnosis and an action order.
 
 | Base | `/mbti:intj` |
 |---|---|
